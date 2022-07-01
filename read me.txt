@@ -1,0 +1,1 @@
+Untuk aplikasi final berada di file dist beserta file sql nya

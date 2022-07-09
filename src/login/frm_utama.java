@@ -43,13 +43,7 @@ public class frm_utama extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jToolBar1 = new javax.swing.JToolBar();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,74 +51,49 @@ public class frm_utama extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/logo fix.jpg"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("MENU UTAMA");
-
         nama.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        nama.setForeground(new java.awt.Color(51, 102, 255));
+        nama.setForeground(new java.awt.Color(255, 204, 102));
         nama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        jabatan2.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jabatan2.setForeground(new java.awt.Color(51, 102, 255));
-        jabatan2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Hi, ");
+        jLabel3.setText("HI!");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jabatan2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(9, 9, 9)))
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jabatan2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
-
-        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jToolBar1.setRollover(true);
 
         btn_stok.setBackground(new java.awt.Color(255, 255, 255));
         btn_stok.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_stok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/dairy-products (1).png"))); // NOI18N
+        btn_stok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/stok.png"))); // NOI18N
         btn_stok.setText("Stok Bahan Baku");
         btn_stok.setFocusable(false);
         btn_stok.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -134,12 +103,10 @@ public class frm_utama extends javax.swing.JFrame {
                 btn_stokActionPerformed(evt);
             }
         });
-        jToolBar1.add(btn_stok);
-        jToolBar1.add(jSeparator1);
 
         btn_pembelian.setBackground(new java.awt.Color(255, 255, 255));
         btn_pembelian.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_pembelian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/list (1).png"))); // NOI18N
+        btn_pembelian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/pembelian.png"))); // NOI18N
         btn_pembelian.setText("Data Pembelian");
         btn_pembelian.setFocusable(false);
         btn_pembelian.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -149,12 +116,10 @@ public class frm_utama extends javax.swing.JFrame {
                 btn_pembelianActionPerformed(evt);
             }
         });
-        jToolBar1.add(btn_pembelian);
-        jToolBar1.add(jSeparator3);
 
         btn_edit.setBackground(new java.awt.Color(255, 255, 255));
         btn_edit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/add-user (1).png"))); // NOI18N
+        btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/pegawai.png"))); // NOI18N
         btn_edit.setText("Edit Pegawai");
         btn_edit.setFocusable(false);
         btn_edit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -169,20 +134,18 @@ public class frm_utama extends javax.swing.JFrame {
                 btn_editActionPerformed(evt);
             }
         });
-        jToolBar1.add(btn_edit);
-        jToolBar1.add(jSeparator2);
 
         btn_lapor.setBackground(new java.awt.Color(255, 255, 255));
         btn_lapor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_lapor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/laporan.png"))); // NOI18N
+        btn_lapor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/laporan_1.png"))); // NOI18N
         btn_lapor.setText("Laporan");
+        btn_lapor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_lapor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btn_lapor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_laporActionPerformed(evt);
             }
         });
-        jToolBar1.add(btn_lapor);
-        jToolBar1.add(jSeparator4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -192,21 +155,32 @@ public class frm_utama extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(618, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_stok)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_pembelian)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_edit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_lapor)
+                .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btn_stok)
+                        .addComponent(btn_lapor)
+                        .addComponent(btn_edit))
+                    .addComponent(btn_pembelian))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,17 +256,10 @@ public class frm_utama extends javax.swing.JFrame {
     public static final javax.swing.JButton btn_pembelian = new javax.swing.JButton();
     public static final javax.swing.JButton btn_stok = new javax.swing.JButton();
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JToolBar.Separator jSeparator1;
-    private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
-    private javax.swing.JToolBar jToolBar1;
-    public static final javax.swing.JLabel jabatan2 = new javax.swing.JLabel();
     public static final javax.swing.JLabel nama = new javax.swing.JLabel();
     // End of variables declaration//GEN-END:variables
 

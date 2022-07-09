@@ -179,13 +179,13 @@ public class frm_pembelian extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabel_pembelian = new javax.swing.JTable();
+        btn_tampil = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btn_cari = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        txt_cari_tgl = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txt_id_pem = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -208,13 +208,45 @@ public class frm_pembelian extends javax.swing.JFrame {
         btn_hapus = new javax.swing.JButton();
         btn_simpan = new javax.swing.JButton();
         btn_batal = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabel_pembelian = new javax.swing.JTable();
-        btn_tampil = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txt_cari_tgl = new javax.swing.JTextField();
+        btn_cari = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tabel_pembelian.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tabel_pembelian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabel_pembelianMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabel_pembelian);
+
+        btn_tampil.setBackground(new java.awt.Color(255, 204, 102));
+        btn_tampil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_tampil.setText("Show All / Refresh");
+        btn_tampil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tampilActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Pembelian");
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -223,21 +255,6 @@ public class frm_pembelian extends javax.swing.JFrame {
         jLabel13.setText("jLabel13");
 
         jPanel2.setBackground(new java.awt.Color(244, 244, 244));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Masukan Tanggal Pembelian");
-
-        btn_cari.setBackground(new java.awt.Color(255, 204, 102));
-        btn_cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_cari.setText("Cari");
-        btn_cari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cariActionPerformed(evt);
-            }
-        });
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
-        jLabel12.setText("(YYYY/MM/DD)");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("ID Pembelian");
@@ -322,16 +339,6 @@ public class frm_pembelian extends javax.swing.JFrame {
                             .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_tmpt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txt_cari_tgl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_cari)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(82, 82, 82)
@@ -343,14 +350,7 @@ public class frm_pembelian extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_cari_tgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_cari)
-                    .addComponent(jLabel12))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txt_id_pem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -387,6 +387,7 @@ public class frm_pembelian extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btn_tambah.setBackground(new java.awt.Color(255, 204, 102));
         btn_tambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_tambah.setText("Add");
         btn_tambah.setMaximumSize(new java.awt.Dimension(79, 23));
@@ -396,6 +397,7 @@ public class frm_pembelian extends javax.swing.JFrame {
             }
         });
 
+        btn_ubah.setBackground(new java.awt.Color(255, 204, 102));
         btn_ubah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_ubah.setText("Edit");
         btn_ubah.addActionListener(new java.awt.event.ActionListener() {
@@ -404,6 +406,7 @@ public class frm_pembelian extends javax.swing.JFrame {
             }
         });
 
+        btn_hapus.setBackground(new java.awt.Color(255, 204, 102));
         btn_hapus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_hapus.setText("Delete");
         btn_hapus.addActionListener(new java.awt.event.ActionListener() {
@@ -412,6 +415,7 @@ public class frm_pembelian extends javax.swing.JFrame {
             }
         });
 
+        btn_simpan.setBackground(new java.awt.Color(255, 204, 102));
         btn_simpan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_simpan.setText("Save");
         btn_simpan.addActionListener(new java.awt.event.ActionListener() {
@@ -420,6 +424,7 @@ public class frm_pembelian extends javax.swing.JFrame {
             }
         });
 
+        btn_batal.setBackground(new java.awt.Color(255, 204, 102));
         btn_batal.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_batal.setText("Cancel");
         btn_batal.addActionListener(new java.awt.event.ActionListener() {
@@ -428,42 +433,77 @@ public class frm_pembelian extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Masukan Tanggal Pembelian");
+
+        btn_cari.setBackground(new java.awt.Color(255, 204, 102));
+        btn_cari.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_cari.setText("Cari");
+        btn_cari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cariActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("(YYYY/MM/DD)");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txt_cari_tgl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addGap(35, 35, 35)
+                .addComponent(btn_cari)
+                .addGap(35, 35, 35))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(138, 138, 138)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(42, 42, 42)
-                            .addComponent(btn_tambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_ubah)
-                            .addGap(53, 53, 53)
-                            .addComponent(btn_simpan)
-                            .addGap(46, 46, 46)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(btn_hapus)
-                        .addGap(40, 40, 40)
-                        .addComponent(btn_batal)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(32, 32, 32)
+                                    .addComponent(btn_tambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(67, 67, 67)
+                                    .addComponent(btn_ubah)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_simpan)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(btn_hapus)
+                                .addGap(57, 57, 57)
+                                .addComponent(btn_batal))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_cari_tgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_cari)
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_simpan)
                     .addComponent(btn_ubah)
@@ -472,34 +512,8 @@ public class frm_pembelian extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_hapus)
                     .addComponent(btn_batal))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
-
-        tabel_pembelian.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tabel_pembelian.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabel_pembelianMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabel_pembelian);
-
-        btn_tampil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_tampil.setText("Show All / Refresh");
-        btn_tampil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tampilActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -507,276 +521,43 @@ public class frm_pembelian extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 447, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_tampil))
-                    .addComponent(jScrollPane1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btn_tampil)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(10, 10, 10)
+                .addComponent(btn_tampil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_id_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_bActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_id_bActionPerformed
-
-    private void txt_jmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_jmlActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_jmlActionPerformed
-
-    private void txt_nipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nipActionPerformed
-
-    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-        // TODO add your handling code here:
-          nonaktif_teks();
-        
-        txt_cari_tgl.requestFocus();
-        
-        btn_simpan.setEnabled(false);
-        btn_batal.setEnabled(false);
-        btn_tambah.setEnabled(true);
-        btn_ubah.setEnabled(true);
-        btn_hapus.setEnabled(true);
-      
-    }//GEN-LAST:event_btn_batalActionPerformed
-
-    private void txt_tmptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tmptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_tmptActionPerformed
-
-    private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-        // TODO add your handling code here:
-        membersihkan_teks();
-        txt_id_pem.requestFocus();
-        btn_simpan.setEnabled(true);
-        btn_ubah.setEnabled(false);
-        btn_hapus.setEnabled(false);
-        
-        aktif_teks(); 
-                                  
-    }//GEN-LAST:event_btn_tambahActionPerformed
-
-    private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
-        // TODO add your handling code here:
-        String id_pem= txt_id_pem.getText();
-        String id_b= txt_id_b.getText();
-        String nip = txt_nip.getText();
-        String harga = txt_harga.getText();
-        String jml = txt_jml.getText();
-        String total= txt_total.getText();
-        String tmpt = txt_tmpt.getText();
-        String tgl = txt_tgl.getText();
-       
-        if((id_pem.isEmpty()) || (jml.isEmpty())) {
-            JOptionPane.showMessageDialog(null, "data tidak boleh kosong, "
-                    + "silakan dilengkapi");
-            txt_id_pem.requestFocus();
-        } else {
-            try {
-                Class.forName(driver);
-                Connection kon = DriverManager.getConnection(
-                                    database,
-                                    user,
-                                    pass
-                );
-                Statement stt = kon.createStatement();
-                String SQL = "UPDATE pembelian SET "
-                        + "id_pembelian = '"+id_pem+"', " 
-                        + "id_bahan_baku = '"+id_b+"', "
-                        + "nip = '"+nip+"', "
-                        + "harga = '"+harga+"', "
-                        + "jumlah_pembelian = '"+jml+"', "
-                        + "total = '"+total+"', "
-                        + "tempat_pembelian = '"+tmpt+"', "
-                        + "tanggal = '"+tgl+"'"
-                        + " WHERE id_pembelian = '"+tableModel.getValueAt(row, 0).toString()+"'";
-                
-                stt.executeUpdate(SQL);
-                data[0] = id_pem;
-                data[1] = id_b;
-                data[2] = nip;
-                data[3] = harga;
-                data[4] = jml;
-                data[5] = total;
-                data[6] = tmpt;
-                data[7] = tgl;
-                
-                
-                tableModel.removeRow(row);
-                tableModel.insertRow(row, data);
-                
-                stt.close();
-                kon.close();
-                membersihkan_teks();
-                btn_simpan.setEnabled(false);
-                nonaktif_teks();
-                txt_cari_tgl.requestFocus();
-                
-            } catch (Exception ex) {
-                System.err.println(ex.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btn_ubahActionPerformed
-
-    private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
-        // TODO add your handling code here:
-         try
-        {
-            Class.forName(driver);
-            Connection kon = DriverManager.getConnection(database,user,pass);
-            Statement stt = kon.createStatement();
-            String SQL = "DELETE FROM pembelian "
-                        +"WHERE " 
-                        +"id_pembelian='"+tableModel.getValueAt(row,0).toString()+"'";
-            stt.executeUpdate(SQL);
-            tableModel.removeRow(row);
-            stt.close();
-            kon.close();
-            membersihkan_teks();
-        }
-        catch (Exception ex)
-        {
-            System.err.println(ex.getMessage());
-        }
-    }//GEN-LAST:event_btn_hapusActionPerformed
-
-    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        // TODO add your handling code here:
-        String data[] = new String[8];
-        
-        if((txt_id_pem.getText().isEmpty()) 
-                || (txt_jml.getText().isEmpty())) {
-            JOptionPane.showMessageDialog(null, "data tidak boleh kosong, "
-                    + "silakan dilengkapi");
-            txt_id_pem.requestFocus();
-        } else {
-            try {
-                Class.forName(driver);
-                Connection kon = DriverManager.getConnection(
-                                    database,
-                                    user,
-                                    pass
-                );
-                Statement stt = kon.createStatement();
-                String SQL = "INSERT INTO pembelian (id_pembelian,id_bahan_baku,nip,harga,jumlah_pembelian,total,tempat_pembelian,tanggal)"
-                        + "VALUES ("
-                        + "'"+txt_id_pem.getText()+"', " 
-                        + "'"+txt_id_b.getText()+"', "
-                        + "'"+txt_nip.getText()+"', "
-                        + "'"+txt_harga.getText()+"', "
-                        + "'"+txt_jml.getText()+"', "
-                        + "'"+txt_total.getText()+"', "
-                        + "'"+txt_tmpt.getText()+"', "
-                        + "'"+txt_tgl.getText()+"'"
-                        + ");";
-                
-                stt.executeUpdate(SQL);
-                data[0] = txt_id_pem.getText();
-                data[1] = txt_id_b.getText();
-                data[2] = txt_nip.getText();
-                data[3] = txt_harga.getText();
-                data[4] = txt_jml.getText();
-                data[5] = txt_total.getText();
-                data[6] = txt_tmpt.getText();
-                data[7] = txt_tgl.getText();
-      
-                
-                
-                tableModel.insertRow(0, data);
-                
-                stt.close();
-                kon.close();
-                membersihkan_teks();
-                nonaktif_teks();
-                txt_cari_tgl.requestFocus();
-                btn_simpan.setEnabled(false);
-                btn_batal.setEnabled(false);
-                btn_tambah.setEnabled(true);
-                btn_ubah.setEnabled(true);
-                btn_hapus.setEnabled(true);
-             
-                
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
-                    JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btn_simpanActionPerformed
-
-    private void btn_cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cariActionPerformed
-        // TODO add your handling code here:
-         //Menghapus Seluruh Isi Data di dalam jTable
-        tableModel.setRowCount(0);
-        
-        //Gunakan Query untuk Mencari
-        try {
-            Class.forName(driver);
-            Connection kon = DriverManager.getConnection(
-                                database,
-                                user,
-                                pass
-            );
-            Statement stt = kon.createStatement();
-            String SQL = "SELECT * FROM pembelian "
-                    + "WHERE tanggal = '"+txt_cari_tgl.getText()+"'";
-
-            ResultSet res = stt.executeQuery(SQL);
-            
-            while(res.next()) {
-                data[0] = res.getString(1);
-                data[1] = res.getString(2);
-                data[2] = res.getString(3);
-                data[3] = res.getString(4);
-                data[4] = res.getString(5);
-                data[5] = res.getString(6);
-                data[6] = res.getString(7);
-                data[7] = res.getString(8);
-   
-                tableModel.addRow(data);
-                
-            }
-            
-            res.close();
-            stt.close();
-            kon.close();
-                
-        } catch (Exception ex) {
-            System.err.println(ex.getMessage());
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
-                    JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
-        }
-    }//GEN-LAST:event_btn_cariActionPerformed
 
     private void btn_tampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tampilActionPerformed
         // TODO add your handling code here:
@@ -791,9 +572,239 @@ public class frm_pembelian extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tabel_pembelianMouseClicked
 
+    private void btn_cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cariActionPerformed
+        // TODO add your handling code here:
+        //Menghapus Seluruh Isi Data di dalam jTable
+        tableModel.setRowCount(0);
+
+        //Gunakan Query untuk Mencari
+        try {
+            Class.forName(driver);
+            Connection kon = DriverManager.getConnection(
+                database,
+                user,
+                pass
+            );
+            Statement stt = kon.createStatement();
+            String SQL = "SELECT * FROM pembelian "
+            + "WHERE tanggal = '"+txt_cari_tgl.getText()+"'";
+
+            ResultSet res = stt.executeQuery(SQL);
+
+            while(res.next()) {
+                data[0] = res.getString(1);
+                data[1] = res.getString(2);
+                data[2] = res.getString(3);
+                data[3] = res.getString(4);
+                data[4] = res.getString(5);
+                data[5] = res.getString(6);
+                data[6] = res.getString(7);
+                data[7] = res.getString(8);
+
+                tableModel.addRow(data);
+
+            }
+
+            res.close();
+            stt.close();
+            kon.close();
+
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error",
+                JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btn_cariActionPerformed
+
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        // TODO add your handling code here:
+        nonaktif_teks();
+
+        txt_cari_tgl.requestFocus();
+
+        btn_simpan.setEnabled(false);
+        btn_batal.setEnabled(false);
+        btn_tambah.setEnabled(true);
+        btn_ubah.setEnabled(true);
+        btn_hapus.setEnabled(true);
+
+    }//GEN-LAST:event_btn_batalActionPerformed
+
+    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
+        // TODO add your handling code here:
+        String data[] = new String[8];
+
+        if((txt_id_pem.getText().isEmpty())
+            || (txt_jml.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(null, "data tidak boleh kosong, "
+                + "silakan dilengkapi");
+            txt_id_pem.requestFocus();
+        } else {
+            try {
+                Class.forName(driver);
+                Connection kon = DriverManager.getConnection(
+                    database,
+                    user,
+                    pass
+                );
+                Statement stt = kon.createStatement();
+                String SQL = "INSERT INTO pembelian (id_pembelian,id_bahan_baku,nip,harga,jumlah_pembelian,total,tempat_pembelian,tanggal)"
+                + "VALUES ("
+                + "'"+txt_id_pem.getText()+"', "
+                + "'"+txt_id_b.getText()+"', "
+                + "'"+txt_nip.getText()+"', "
+                + "'"+txt_harga.getText()+"', "
+                + "'"+txt_jml.getText()+"', "
+                + "'"+txt_total.getText()+"', "
+                + "'"+txt_tmpt.getText()+"', "
+                + "'"+txt_tgl.getText()+"'"
+                + ");";
+
+                stt.executeUpdate(SQL);
+                data[0] = txt_id_pem.getText();
+                data[1] = txt_id_b.getText();
+                data[2] = txt_nip.getText();
+                data[3] = txt_harga.getText();
+                data[4] = txt_jml.getText();
+                data[5] = txt_total.getText();
+                data[6] = txt_tmpt.getText();
+                data[7] = txt_tgl.getText();
+
+                tableModel.insertRow(0, data);
+
+                stt.close();
+                kon.close();
+                membersihkan_teks();
+                nonaktif_teks();
+                txt_cari_tgl.requestFocus();
+                btn_simpan.setEnabled(false);
+                btn_batal.setEnabled(false);
+                btn_tambah.setEnabled(true);
+                btn_ubah.setEnabled(true);
+                btn_hapus.setEnabled(true);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error",
+                    JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btn_simpanActionPerformed
+
+    private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Class.forName(driver);
+            Connection kon = DriverManager.getConnection(database,user,pass);
+            Statement stt = kon.createStatement();
+            String SQL = "DELETE FROM pembelian "
+            +"WHERE "
+            +"id_pembelian='"+tableModel.getValueAt(row,0).toString()+"'";
+            stt.executeUpdate(SQL);
+            tableModel.removeRow(row);
+            stt.close();
+            kon.close();
+            membersihkan_teks();
+        }
+        catch (Exception ex)
+        {
+            System.err.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_btn_hapusActionPerformed
+
+    private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
+        // TODO add your handling code here:
+        String id_pem= txt_id_pem.getText();
+        String id_b= txt_id_b.getText();
+        String nip = txt_nip.getText();
+        String harga = txt_harga.getText();
+        String jml = txt_jml.getText();
+        String total= txt_total.getText();
+        String tmpt = txt_tmpt.getText();
+        String tgl = txt_tgl.getText();
+
+        if((id_pem.isEmpty()) || (jml.isEmpty())) {
+            JOptionPane.showMessageDialog(null, "data tidak boleh kosong, "
+                + "silakan dilengkapi");
+            txt_id_pem.requestFocus();
+        } else {
+            try {
+                Class.forName(driver);
+                Connection kon = DriverManager.getConnection(
+                    database,
+                    user,
+                    pass
+                );
+                Statement stt = kon.createStatement();
+                String SQL = "UPDATE pembelian SET "
+                + "id_pembelian = '"+id_pem+"', "
+                + "id_bahan_baku = '"+id_b+"', "
+                + "nip = '"+nip+"', "
+                + "harga = '"+harga+"', "
+                + "jumlah_pembelian = '"+jml+"', "
+                + "total = '"+total+"', "
+                + "tempat_pembelian = '"+tmpt+"', "
+                + "tanggal = '"+tgl+"'"
+                + " WHERE id_pembelian = '"+tableModel.getValueAt(row, 0).toString()+"'";
+
+                stt.executeUpdate(SQL);
+                data[0] = id_pem;
+                data[1] = id_b;
+                data[2] = nip;
+                data[3] = harga;
+                data[4] = jml;
+                data[5] = total;
+                data[6] = tmpt;
+                data[7] = tgl;
+
+                tableModel.removeRow(row);
+                tableModel.insertRow(row, data);
+
+                stt.close();
+                kon.close();
+                membersihkan_teks();
+                btn_simpan.setEnabled(false);
+                nonaktif_teks();
+                txt_cari_tgl.requestFocus();
+
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btn_ubahActionPerformed
+
+    private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
+        // TODO add your handling code here:
+        membersihkan_teks();
+        txt_id_pem.requestFocus();
+        btn_simpan.setEnabled(true);
+        btn_ubah.setEnabled(false);
+        btn_hapus.setEnabled(false);
+
+        aktif_teks();
+
+    }//GEN-LAST:event_btn_tambahActionPerformed
+
+    private void txt_nipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nipActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nipActionPerformed
+
+    private void txt_tmptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tmptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_tmptActionPerformed
+
     private void txt_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_totalActionPerformed
+
+    private void txt_jmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_jmlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_jmlActionPerformed
+
+    private void txt_id_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_bActionPerformed
     
    
     /**
@@ -839,6 +850,7 @@ public class frm_pembelian extends javax.swing.JFrame {
     private javax.swing.JButton btn_tambah;
     private javax.swing.JButton btn_tampil;
     private javax.swing.JButton btn_ubah;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

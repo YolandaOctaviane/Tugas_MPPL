@@ -236,7 +236,7 @@ public class frm_pegawai extends javax.swing.JFrame {
 
         btn_tambah.setBackground(new java.awt.Color(255, 204, 102));
         btn_tambah.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btn_tambah.setText("Add");
+        btn_tambah.setText("Tambah");
         btn_tambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_tambahActionPerformed(evt);
@@ -245,7 +245,7 @@ public class frm_pegawai extends javax.swing.JFrame {
 
         btn_ubah.setBackground(new java.awt.Color(255, 204, 102));
         btn_ubah.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btn_ubah.setText("Edit");
+        btn_ubah.setText("Ubah");
         btn_ubah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ubahActionPerformed(evt);
@@ -254,7 +254,7 @@ public class frm_pegawai extends javax.swing.JFrame {
 
         btn_simpan.setBackground(new java.awt.Color(255, 204, 102));
         btn_simpan.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btn_simpan.setText("Save");
+        btn_simpan.setText("Simpan");
         btn_simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_simpanActionPerformed(evt);
@@ -263,7 +263,7 @@ public class frm_pegawai extends javax.swing.JFrame {
 
         btn_hapus.setBackground(new java.awt.Color(255, 204, 102));
         btn_hapus.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btn_hapus.setText("Delete");
+        btn_hapus.setText("Hapus");
         btn_hapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_hapusActionPerformed(evt);
@@ -272,14 +272,14 @@ public class frm_pegawai extends javax.swing.JFrame {
 
         btn_batal.setBackground(new java.awt.Color(255, 204, 102));
         btn_batal.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btn_batal.setText("Cancel");
+        btn_batal.setText("Batal");
         btn_batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_batalActionPerformed(evt);
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Pencarian NIP"));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -287,7 +287,7 @@ public class frm_pegawai extends javax.swing.JFrame {
 
         btn_cari.setBackground(new java.awt.Color(255, 204, 102));
         btn_cari.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btn_cari.setText("Search");
+        btn_cari.setText("Cari");
         btn_cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cariActionPerformed(evt);
@@ -350,28 +350,28 @@ public class frm_pegawai extends javax.swing.JFrame {
                             .addComponent(txt_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(btn_tambah)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_tambah)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_ubah)
-                        .addGap(45, 45, 45)
+                        .addGap(33, 33, 33)
                         .addComponent(btn_simpan)
                         .addGap(37, 37, 37))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btn_hapus)
-                        .addGap(26, 26, 26)
+                        .addGap(38, 38, 38)
                         .addComponent(btn_batal)
                         .addGap(90, 90, 90))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(125, 125, 125))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

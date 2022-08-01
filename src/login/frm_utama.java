@@ -59,7 +59,7 @@ public class frm_utama extends javax.swing.JFrame {
 
         nama.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         nama.setForeground(new java.awt.Color(255, 204, 102));
-        nama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nama.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/V:/database/Tugas_MPPL/src/login/frm_laporan.java</file>
+            <file>file:/V:/database/Tugas_MPPL/src/login/frm_pembelian.java</file>
+            <file>file:/V:/database/Tugas_MPPL/src/login/frm_utama.java</file>
+            <file>file:/V:/database/Tugas_MPPL/src/login/frm_login.java</file>
+            <file>file:/V:/database/Tugas_MPPL/src/login/frm_stok.java</file>
+            <file>file:/V:/database/Tugas_MPPL/src/login/frm_pegawai.java</file>
+        </group>
     </open-files>
 </project-private>

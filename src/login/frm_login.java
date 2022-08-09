@@ -287,8 +287,8 @@ public class frm_login extends javax.swing.JFrame {
 
                 }else if(cbuser.getSelectedItem().equals("pemilik")){
                     utama.setVisible(true);
-                    btn_stok.setEnabled(true);
-                    btn_pembelian.setEnabled(true);
+                    btn_stok.setEnabled(false);
+                    btn_pembelian.setEnabled(false);
 
                     btn_edit.setEnabled(true);
                     btn_lapor.setEnabled(true);
